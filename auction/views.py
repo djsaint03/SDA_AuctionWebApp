@@ -22,7 +22,6 @@ def registerpage(request):
             messages.success(request, "Account created for ", + user)
             return redirect("login")
 
-
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
@@ -30,4 +29,10 @@ def home(request):
     return render(request, "home.html")
 
 def products(request):
-    return render(request,"products.html")
+    return render(request, "products.html")
+
+def cart(request):
+    return render(request, "Cart.html")
+
+def checkout(request):
+    return render(request, "checkout.html")
