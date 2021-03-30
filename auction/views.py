@@ -5,6 +5,7 @@ from django.contrib import messages
 
 # Create your views here.
 from .forms import CreateUserForm
+from .models import *
 
 
 
@@ -26,7 +27,9 @@ def registerpage(request):
     return render(request, 'accounts/register.html', context)
 
 def home(request):
-    return render(request, "home.html")
+    products = Product.objects.all()
+    context = {"products":products}
+    return render(request, "home.html",context)
 
 def products(request):
     return render(request, "products.html")
@@ -36,3 +39,5 @@ def cart(request):
 
 def checkout(request):
     return render(request, "checkout.html")
+
+
